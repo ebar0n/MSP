@@ -1,0 +1,109 @@
+﻿<Page
+    x:Class="Traductor_Morse.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Traductor_Morse"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#A09D98">
+        <Grid.RowDefinitions> 
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Rectangle Fill="#2C61C1" Grid.Column="0" Grid.ColumnSpan="2"  />
+        <TextBlock x:Name="Titulo" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Traductor de código morse" VerticalAlignment="Center" FontSize="72" Foreground="White"/>
+        <Button x:Name="backButton" Style="{StaticResource BackButtonStyle}" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontWeight="Bold" FontSize="72" Margin="20" Click="backButton_Click" Visibility="Collapsed"/>
+        
+        <TextBlock x:Name="PiePagina" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="El Código Morse es un medio de comunicación basado en la transmisión y recepción de mensajes empleando sonidos o rayos de luz y un alfabeto alfanumérico compuesto por puntos y rayas..." FontSize="32" Foreground="White" Opacity="0.8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50,25" TextAlignment="Justify" FontFamily="Global User Interface"/>
+        
+        <Rectangle Fill="#000" Grid.Row="1" Margin="50,50" Opacity="0.3"/>
+        <TextBlock x:Name="TextoMorse" Grid.Row="1" Margin="100,60" HorizontalAlignment="Center" TextWrapping="Wrap" Text="De texto a código morse.
+                   (A = .-)" VerticalAlignment="Center" FontSize="62" Foreground="White" PointerPressed="TextoMorse_PointerPressed"/>
+
+        <Rectangle Fill="#000" Grid.Row="1" Grid.Column="1" Margin="50,50" Opacity="0.3"/>
+        <TextBlock x:Name="MorseTexto" Grid.Row="1" Grid.Column="1" Margin="100,60" HorizontalAlignment="Center" TextWrapping="Wrap" Text="De código morse a  texto.
+                   (.- = A)" VerticalAlignment="Center" FontSize="62" Foreground="White" PointerPressed="MorseTexto_PointerPressed"/>
+
+        <Grid x:Name="GridTextoMorse" Background="#A09D98" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Texto en alfanumerico:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <TextBlock Grid.Column="1" Text="Texto en código morse:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <TextBox x:Name="texto1" Grid.Row="1" TextWrapping="Wrap" Text="" Margin="100,50" FontSize="32" KeyUp="texto1_KeyUp" MaxLength="140"/>
+            <Rectangle Grid.Row="1" Grid.Column="1"  Margin="100,50" Fill="#FF2C61C1" Opacity="0.15" />
+            <TextBlock x:Name="morse1" Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="" Margin="100,50" FontSize="22"   Foreground="White"  FontWeight="Bold"/>
+            <Button Grid.Row="2" Grid.Column="0"  Content="Traducir por sonidos" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" Background="#FF2C61C1" Click="Button_Click_1" />
+            <Button Grid.Row="2" Grid.Column="1"  Content="Traducir por efectos de luz" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" RenderTransformOrigin="0.5,0.5" Background="#FF2C61C1" Click="Button_Click_2" />
+        </Grid>
+        
+        <Grid x:Name="GridMorseTexto" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFA09D98" Visibility="Collapsed">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Texto en alfanumerico:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <TextBlock Grid.Column="1" Text="Texto en código morse:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <TextBox x:Name="morse2" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="" Margin="100,50" FontSize="32" KeyUp="morse2_KeyUp"/>
+            <Rectangle  Margin="100,50" Grid.Row="1" Fill="#FF2C61C1" Opacity="0.15" />
+            <TextBlock x:Name="texto2" Grid.Row="1" TextWrapping="Wrap" Text="" Margin="100,50" FontSize="22"   Foreground="White"  FontWeight="Bold"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="2"  Content="Ver alfabeto morse" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" FontWeight="Normal"  Background="#FF2C61C1" Click="Button_Click_3" />
+            
+        </Grid>
+
+        <Grid x:Name="modal" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Opacity="0.5" Visibility="Collapsed">
+            <Rectangle Opacity="0.8" Fill="White" />
+            <Rectangle x:Name="iconoSonido" RenderTransformOrigin="0.703,0.298" Height="120" Margin="0" Width="120" RadiusY="120" RadiusX="120"  >
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Assets/sonido.png" Stretch="None"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <MediaElement x:Name="sonidoPunto" VerticalAlignment="Bottom" HorizontalAlignment="Center" AudioCategory="SoundEffects" PosterSource="Assets/sonido.png" Source="Assets/punto.wav" Width="120" Height="120" Visibility="Collapsed" AutoPlay="False"/>
+            <MediaElement x:Name="sonidoRaya" VerticalAlignment="Bottom" HorizontalAlignment="Center" AudioCategory="SoundEffects" PosterSource="Assets/sonido.png" Source="Assets/raya.wav" Width="120" Height="120" Visibility="Collapsed" AutoPlay="False"/>
+
+            <Rectangle x:Name="iconoLuzApagado" RenderTransformOrigin="0.703,0.298" Height="120" Margin="0" Width="120" RadiusY="120" RadiusX="120"  >
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Assets/Apagada.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle x:Name="iconoLuzPrendida" RenderTransformOrigin="0.703,0.298" Height="120" Margin="0" Width="120" RadiusY="120" RadiusX="120"  >
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Assets/Prendida.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            
+            <Button x:Name="Xmodal" Content="X" FontWeight="Bold" FontSize="32"  Background="White" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Xmodal_Click"/>
+            
+        </Grid>
+        <Grid x:Name="modal2" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Opacity="0.99" Margin="10" Visibility="Collapsed">
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets/codigo morse.png"/>
+            </Grid.Background>
+
+            <Button x:Name="Xmodal2" Content="X" FontWeight="Bold" FontSize="32"  Background="White" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Xmodal2_Click" />
+
+        </Grid>
+    </Grid>
+
+</Page>
