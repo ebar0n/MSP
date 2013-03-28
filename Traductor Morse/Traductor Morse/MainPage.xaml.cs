@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
-using System.Threading;
-
+using Windows.Data.Xml.Dom;
+using Windows.UI.Notifications;
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Traductor_Morse
@@ -31,7 +23,26 @@ namespace Traductor_Morse
 
         public MainPage()
         {
+            
+            Loaded += MainPage_Loaded;
             this.InitializeComponent();
+            tile();
+            
+           
+        }
+
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            Window.Current.SizeChanged += Current_SizeChanged;
+        }
+
+        void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            if (e.Size.Width <= e.Size.Height)
+                VisualStateManager.GoToState(this, "Snapped", false);
+            else {
+                VisualStateManager.GoToState(this, "FullScreenLandscape", false);
+            }
         }
 
         /// <summary>
@@ -153,6 +164,7 @@ namespace Traductor_Morse
             //codigo de sonidos
             bandera1 = true;
             await EfectoSonido();
+           
            
         }
 
@@ -308,6 +320,24 @@ namespace Traductor_Morse
         private void Xmodal2_Click(object sender, RoutedEventArgs e)
         {
             this.modal2.Visibility = Visibility.Collapsed;
+        }
+
+        private async void tile() {
+
+            Random rnd = new Random();
+            while(true){
+                XmlDocument tileData = TileUpdateManager.GetTemplateContent(TileTemplateType.TileWideText03);
+                XmlNodeList texData = tileData.GetElementsByTagName("text");
+               
+                int val = rnd.Next(0,abc.Length);
+                texData[0].InnerText = "Aprender es facil: \n    " + abc[val] + " = " + abcM.Split(' ')[val];
+                TileNotification notificacion = new TileNotification(tileData);
+                notificacion.ExpirationTime = DateTimeOffset.UtcNow.AddSeconds(10);
+                TileUpdateManager.CreateTileUpdaterForApplication().Update(notificacion);
+
+                await Task.Delay(TimeSpan.FromSeconds(20));
+            }
+
         }
        
     }

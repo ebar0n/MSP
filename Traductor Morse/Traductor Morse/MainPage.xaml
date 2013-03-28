@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#A09D98">
+
+        <Grid x:Name="PantallaCompleta" Background="#A09D98" >
+        
         <Grid.RowDefinitions> 
             <RowDefinition></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
@@ -20,15 +22,16 @@
         
         <Rectangle Fill="#2C61C1" Grid.Column="0" Grid.ColumnSpan="2"  />
         <TextBlock x:Name="Titulo" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Traductor de código morse" VerticalAlignment="Center" FontSize="72" Foreground="White"/>
-        <Button x:Name="backButton" Style="{StaticResource BackButtonStyle}" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontWeight="Bold" FontSize="72" Margin="20" Click="backButton_Click" Visibility="Collapsed"/>
+        <Button x:Name="backButton" Style="{StaticResource BackButtonStyle}" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="72"  Margin="20" Click="backButton_Click" BorderThickness="2" Visibility="Collapsed"/>
         
         <TextBlock x:Name="PiePagina" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="El Código Morse es un medio de comunicación basado en la transmisión y recepción de mensajes empleando sonidos o rayos de luz y un alfabeto alfanumérico compuesto por puntos y rayas..." FontSize="32" Foreground="White" Opacity="0.8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50,25" TextAlignment="Justify" FontFamily="Global User Interface"/>
-        
-        <Rectangle Fill="#000" Grid.Row="1" Margin="50,50" Opacity="0.3"/>
+
+
+        <Rectangle x:Name="TextoMorseR" Fill="#000" Grid.Row="1" Margin="50,50" Opacity="0.3"/>
         <TextBlock x:Name="TextoMorse" Grid.Row="1" Margin="100,60" HorizontalAlignment="Center" TextWrapping="Wrap" Text="De texto a código morse.
                    (A = .-)" VerticalAlignment="Center" FontSize="62" Foreground="White" PointerPressed="TextoMorse_PointerPressed"/>
 
-        <Rectangle Fill="#000" Grid.Row="1" Grid.Column="1" Margin="50,50" Opacity="0.3"/>
+        <Rectangle x:Name="MorseTextoR" Fill="#000" Grid.Row="1" Grid.Column="1" Margin="50,50" Opacity="0.3"/>
         <TextBlock x:Name="MorseTexto" Grid.Row="1" Grid.Column="1" Margin="100,60" HorizontalAlignment="Center" TextWrapping="Wrap" Text="De código morse a  texto.
                    (.- = A)" VerticalAlignment="Center" FontSize="62" Foreground="White" PointerPressed="MorseTexto_PointerPressed"/>
 
@@ -43,13 +46,13 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Texto en alfanumerico:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
-            <TextBlock Grid.Column="1" Text="Texto en código morse:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
-            <TextBox x:Name="texto1" Grid.Row="1" TextWrapping="Wrap" Text="" Margin="100,50" FontSize="32" KeyUp="texto1_KeyUp" MaxLength="140"/>
-            <Rectangle Grid.Row="1" Grid.Column="1"  Margin="100,50" Fill="#FF2C61C1" Opacity="0.15" />
+            <TextBlock x:Name="GridTextoMorseT1" Text="Texto en alfanumerico:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <TextBlock x:Name="GridTextoMorseT2" Grid.Column="1" Text="Texto en código morse:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <TextBox x:Name="texto1" Grid.Row="1" TextWrapping="Wrap" Text="" Margin="100,50" FontSize="32" KeyUp="texto1_KeyUp"/>
+            <Rectangle x:Name="morse1R" Grid.Row="1" Grid.Column="1"  Margin="100,50" Fill="#FF2C61C1" Opacity="0.15" />
             <TextBlock x:Name="morse1" Grid.Row="1" Grid.Column="1"  TextWrapping="Wrap" Text="" Margin="100,50" FontSize="22"   Foreground="White"  FontWeight="Bold"/>
-            <Button Grid.Row="2" Grid.Column="0"  Content="Traducir por sonidos" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" Background="#FF2C61C1" Click="Button_Click_1" />
-            <Button Grid.Row="2" Grid.Column="1"  Content="Traducir por efectos de luz" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" RenderTransformOrigin="0.5,0.5" Background="#FF2C61C1" Click="Button_Click_2" />
+            <Button x:Name="GridTextoMorseB1" Grid.Row="2" Grid.Column="0"  Content="Traducir por sonidos" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" Background="#FF2C61C1" Click="Button_Click_1" />
+            <Button x:Name="GridTextoMorseB2" Grid.Row="2" Grid.Column="1"  Content="Traducir por efectos de luz" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" RenderTransformOrigin="0.5,0.5" Background="#FF2C61C1" Click="Button_Click_2" />
         </Grid>
         
         <Grid x:Name="GridMorseTexto" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFA09D98" Visibility="Collapsed">
@@ -63,33 +66,33 @@
                 <RowDefinition Height="5*"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="Texto en alfanumerico:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
-            <TextBlock Grid.Column="1" Text="Texto en código morse:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <TextBlock x:Name="GridMorseTextoT1" Text="Texto en alfanumerico:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <TextBlock x:Name="GridMorseTextoT2" Grid.Column="1" Text="Texto en código morse:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
             <TextBox x:Name="morse2" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="" Margin="100,50" FontSize="32" KeyUp="morse2_KeyUp"/>
-            <Rectangle  Margin="100,50" Grid.Row="1" Fill="#FF2C61C1" Opacity="0.15" />
+            <Rectangle x:Name="texto2R" Margin="100,50" Grid.Row="1" Fill="#FF2C61C1" Opacity="0.15" />
             <TextBlock x:Name="texto2" Grid.Row="1" TextWrapping="Wrap" Text="" Margin="100,50" FontSize="22"   Foreground="White"  FontWeight="Bold"/>
-            <Button Grid.Row="2" Grid.ColumnSpan="2"  Content="Ver alfabeto morse" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" FontWeight="Normal"  Background="#FF2C61C1" Click="Button_Click_3" />
+            <Button x:Name="GridMorseTextoB" Grid.Row="2" Grid.ColumnSpan="2"  Content="Ver alfabeto morse" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48" FontWeight="Normal"  Background="#FF2C61C1" Click="Button_Click_3" />
             
         </Grid>
 
         <Grid x:Name="modal" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Opacity="0.5" Visibility="Collapsed">
             <Rectangle Opacity="0.8" Fill="White" />
-            <Rectangle x:Name="iconoSonido" RenderTransformOrigin="0.703,0.298" Height="120" Margin="0" Width="120" RadiusY="120" RadiusX="120"  >
+            <Rectangle x:Name="iconoSonido" RenderTransformOrigin="0.703,0.298"  Height="240" Margin="0" Width="240" RadiusY="240" RadiusX="240" >
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="Assets/sonido.png" Stretch="None"/>
+                    <ImageBrush ImageSource="Assets/sonido.png" Stretch="UniformToFill"/>
                 </Rectangle.Fill>
             </Rectangle>
             <MediaElement x:Name="sonidoPunto" VerticalAlignment="Bottom" HorizontalAlignment="Center" AudioCategory="SoundEffects" PosterSource="Assets/sonido.png" Source="Assets/punto.wav" Width="120" Height="120" Visibility="Collapsed" AutoPlay="False"/>
             <MediaElement x:Name="sonidoRaya" VerticalAlignment="Bottom" HorizontalAlignment="Center" AudioCategory="SoundEffects" PosterSource="Assets/sonido.png" Source="Assets/raya.wav" Width="120" Height="120" Visibility="Collapsed" AutoPlay="False"/>
 
-            <Rectangle x:Name="iconoLuzApagado" RenderTransformOrigin="0.703,0.298" Height="120" Margin="0" Width="120" RadiusY="120" RadiusX="120"  >
+            <Rectangle x:Name="iconoLuzApagado" RenderTransformOrigin="0.703,0.298" Height="240" Margin="0" Width="240" RadiusY="240" RadiusX="240"  >
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="Assets/Apagada.png"/>
+                    <ImageBrush ImageSource="Assets/Apagada.png" Stretch="UniformToFill"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="iconoLuzPrendida" RenderTransformOrigin="0.703,0.298" Height="120" Margin="0" Width="120" RadiusY="120" RadiusX="120"  >
+            <Rectangle x:Name="iconoLuzPrendida" RenderTransformOrigin="0.703,0.298" Height="240" Margin="0" Width="240" RadiusY="240" RadiusX="240"  >
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="Assets/Prendida.png"/>
+                    <ImageBrush ImageSource="Assets/Prendida.png" Stretch="UniformToFill"/>
                 </Rectangle.Fill>
             </Rectangle>
             
@@ -104,6 +107,103 @@
             <Button x:Name="Xmodal2" Content="X" FontWeight="Bold" FontSize="32"  Background="White" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Xmodal2_Click" />
 
         </Grid>
-    </Grid>
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape" />
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="42"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="5,20,20,20"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Titulo" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="42"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Titulo" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="40,0,0,0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PiePagina" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="16"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TextoMorse" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="26"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TextoMorse" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="20,60"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TextoMorseR" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,40"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MorseTexto" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="26"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MorseTexto" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="20,60"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MorseTextoR" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,40"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridTextoMorseT1" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridTextoMorseT2" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridTextoMorseB1" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridTextoMorseB2" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="texto1" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="5,20"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="morse1" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="5,20"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="morse1R" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="5,20"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="texto1" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="morse1" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridMorseTextoT1" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridMorseTextoT2" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridMorseTextoB" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="texto2" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="5,20"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="morse2" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="5,20"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="texto2R" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="5,20"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="texto2" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="morse2" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+    </Grid>
 </Page>
