@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="Traductor_Morse.MyUserControl3"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Traductor_Morse"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="300" Width="Auto" Height="1201.194">
+
+    <StackPanel Margin="4,0,0,0">
+        <TextBlock Margin="0,45,0,0" TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Left">
+        	<Run Text="De código morse a texto:"/>
+        </TextBlock>
+        <TextBlock Margin="10,10,10,0" TextWrapping="Wrap" TextAlignment="Justify" FontSize="16" Text="Aquí encontraras dos cajas, una la podrás editar, allí escribirás texto alfanumérico (letras, numeros y signos de puntuación) y automáticamente ira siendo traducido al alfabeto de código morse conformado por puntos y rayas únicamente." Foreground="#FF494949" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <TextBlock Margin="10,15,0,0" TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Left">
+        	<Run Text="Traducido por sonidos:"/>
+        </TextBlock>
+        <TextBlock Margin="10,10,10,0" TextWrapping="Wrap" TextAlignment="Justify" FontSize="16" Text="Esta opción permite reproducir el mensaje ingresado al equivalente en sonidos en clave morse, el sonido de un punto es un pitido corto mientras que el de una raya es largo, un silencio corto es el espacio entre los puntos y rayas de cada letras, uno más largo representa la separación de una letra y otro aún más largo representa la separación de una palabra." Foreground="#FF494949" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBlock Margin="10,15,0,0" TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Left">
+        	<Run Text="Traducido por efectos luz:"/>
+        </TextBlock>
+        <TextBlock Margin="10,10,10,0" TextWrapping="Wrap" TextAlignment="Justify" FontSize="16" Text="Esta opción permite trasmitir el mensaje ingresado al equivalente en clave morse por medio de transiciones de luz, un destello corto significa un punto mientras que el de una raya es largo, una pausa corto es el espacio entre los puntos y rayas de cada letra, una más largo representa la separación de una letra y otra aún más larga representa la separación de una palabra." Foreground="#FF494949" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <TextBlock Margin="0,45,0,0" TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Left">
+        	<Run Text="De texto código morse:"/>
+        </TextBlock>
+        <TextBlock Margin="10,10,10,0" TextWrapping="Wrap" TextAlignment="Justify" FontSize="16" Text="Aquí encontraras dos cajas, una la podrás editar, allí escribirás texto en el alfabeto morse (puntos, rayas) y automáticamente ira siendo traducido a texto alfanumérico (letras, numeros y signos de puntuación)." Foreground="#FF494949" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBlock Margin="10,15,0,0" TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Left">
+        	<Run Text="Ver alfabeto morse:"/>
+        </TextBlock>
+        <TextBlock Margin="10,10,10,0" TextWrapping="Wrap" TextAlignment="Justify" FontSize="16" Text="Esta opción permite ver una imagen con las equivalencias del abecedario, números y signos de puntuación en puntos y rayas del condigo morse." Foreground="#FF494949" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+    </StackPanel>
+</UserControl>

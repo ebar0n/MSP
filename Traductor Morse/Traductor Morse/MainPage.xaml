@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-
-        <Grid x:Name="PantallaCompleta" Background="#A09D98" >
+    
+    <Grid x:Name="PantallaCompleta" Background="#A09D98" >
         
         <Grid.RowDefinitions> 
             <RowDefinition></RowDefinition>
@@ -19,6 +19,8 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
+        
         
         <Rectangle Fill="#2C61C1" Grid.Column="0" Grid.ColumnSpan="2"  />
         <TextBlock x:Name="Titulo" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Traductor de código morse" VerticalAlignment="Center" FontSize="72" Foreground="White"/>
@@ -43,7 +45,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="4*"></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
             </Grid.RowDefinitions>
 
             <TextBlock x:Name="GridTextoMorseT1" Text="Texto en alfanumerico:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
@@ -64,7 +66,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="5*"></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="2*" ></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock x:Name="GridMorseTextoT1" Text="Texto en alfanumerico:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
             <TextBlock x:Name="GridMorseTextoT2" Grid.Column="1" Text="Texto en código morse:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
@@ -85,14 +87,14 @@
             <MediaElement x:Name="sonidoPunto" VerticalAlignment="Bottom" HorizontalAlignment="Center" AudioCategory="SoundEffects" PosterSource="Assets/sonido.png" Source="Assets/punto.wav" Width="120" Height="120" Visibility="Collapsed" AutoPlay="False"/>
             <MediaElement x:Name="sonidoRaya" VerticalAlignment="Bottom" HorizontalAlignment="Center" AudioCategory="SoundEffects" PosterSource="Assets/sonido.png" Source="Assets/raya.wav" Width="120" Height="120" Visibility="Collapsed" AutoPlay="False"/>
 
-            <Rectangle x:Name="iconoLuzApagado" RenderTransformOrigin="0.703,0.298" Height="240" Margin="0" Width="240" RadiusY="240" RadiusX="240"  >
+            <Rectangle x:Name="iconoLuzApagado"   >
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="Assets/Apagada.png" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="Assets/Apagada.png" Stretch="Uniform"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="iconoLuzPrendida" RenderTransformOrigin="0.703,0.298" Height="240" Margin="0" Width="240" RadiusY="240" RadiusX="240"  >
+            <Rectangle x:Name="iconoLuzPrendida" Margin="0"   >
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="Assets/Prendida.png" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="Assets/Prendida.png" Stretch="Uniform"/>
                 </Rectangle.Fill>
             </Rectangle>
             
@@ -204,6 +206,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
+
     </Grid>
 </Page>

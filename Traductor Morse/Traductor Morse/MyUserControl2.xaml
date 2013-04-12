@@ -1,0 +1,17 @@
+﻿<UserControl
+    x:Class="Traductor_Morse.MyUserControl2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Traductor_Morse"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+ d:DesignWidth="300" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <StackPanel HorizontalAlignment="Center" Margin="4,0,0,0">
+        <TextBlock Margin="0,45,0,0" TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Left">
+        	<Run Text="Terminos y condiciones:"/>
+        </TextBlock>
+        <TextBlock Margin="10,10,10,0" TextWrapping="Wrap" TextAlignment="Justify" FontSize="16" Text="Traductor de código no hace uso de ningún tipo de información personal, es una aplicación completamente interactiva con el objetivó, que aprendas código morse, y te pueda ser útil en algún momento de tu vida." Foreground="#FF494949" VerticalAlignment="Center" HorizontalAlignment="Left"/>  
+    </StackPanel>
+</UserControl>

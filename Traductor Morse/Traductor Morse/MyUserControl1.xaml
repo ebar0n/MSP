@@ -1,0 +1,42 @@
+﻿<UserControl
+    x:Class="Traductor_Morse.MyUserControl1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Traductor_Morse"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+ d:DesignWidth="300" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <StackPanel HorizontalAlignment="Center" Margin="4,0,0,0">
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="0,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="20" Foreground="Black" FontWeight="SemiBold">
+        	<Run Text="Desarrollado por"/>
+        	<Run Text=":"/>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Height="44" Width="260" Foreground="#FF494949">
+        	<Run Text="Edwar Alexis Baron Garcia."/>
+        	<LineBreak/>
+        	<Run Text="Estudiante de Ing. Informática UNET."/>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,-5,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Height="25" Width="260" Text="Todos los derechos reservados." Foreground="#FF494949"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="0,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="20" Foreground="Black" FontWeight="SemiBold">
+        	<Run Text="Soporte via e-mail"/>
+        	<Run Text=":"/>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Height="43" Width="235" Foreground="#FF494949">
+        	<Run Text="Por favor, comunicarse"/>
+        	<Run Text=" ante cualquier problema."/>
+        
+        </TextBlock>
+        <HyperlinkButton Margin="10,-10,0,0" Content="Enviar e-mail" FontSize="16" Foreground="Blue" NavigateUri="mailto:edwar.baron@hotmail.com"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="0,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="20" Foreground="Black" FontWeight="SemiBold">
+        	<Run Text="Twitter"/>
+        	<Run Text=":"/>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Height="25" Width="260" Text="Sígueme en" Foreground="#FF494949"/>
+        <HyperlinkButton Margin="10,-10,0,0" Content="@ebar0n" FontSize="16" Foreground="Blue"
+    		NavigateUri="https://twitter.com/ebar0n"/>
+    </StackPanel>
+</UserControl>

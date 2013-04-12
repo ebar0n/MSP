@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="9d4ff2b2-e84f-49a0-a8b8-03f8e26721a0" Publisher="CN=test" Version="1.0.0.1" />
+  <Identity Name="9d4ff2b2-e84f-49a0-a8b8-03f8e26721a0" Publisher="CN=test" Version="1.0.0.0" />
   <Properties>
     <DisplayName>Traductor Morse</DisplayName>
     <PublisherDisplayName>Edwar Baron</PublisherDisplayName>

@@ -15,19 +15,18 @@ namespace Traductor_Morse
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         #region constantes
         private string abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890:,;?'";
         private string abcM = ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. .---- ..--- ...-- ....- ..... -.... --... ---.. ----. ----- ---... --..-- -.-.-. ..--.. .-..-.";
         private bool bandera1,bandera2;
         #endregion
-
         public MainPage()
         {
             
-            Loaded += MainPage_Loaded;
             this.InitializeComponent();
+            Loaded += MainPage_Loaded;
             tile();
-            
            
         }
 
